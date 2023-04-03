@@ -14,10 +14,22 @@ close all
 %% Load 3D point Data into columns X, Y, Z
 % Box.mat and Box_other.mat have sample 3D point data.
 dir = '3D Point Data/';
-fname = 'Box.mat';
-load([dir fname]);
+% fname = 'Box.mat';
+% load([dir fname]);
 
-points3D = [X Y Z];
+% fname = 'sphere.obj';
+% result = read_wobj([dir fname]);
+% vertices = result.vertices;
+% X = vertices(:, 1);
+% Y = vertices(:, 2);
+% Z = vertices(:, 3);
+
+fname = '1.csv';
+points3D = csvread([dir fname]);
+X = points3D(:,1);
+Y = points3D(:,2);
+Z = points3D(:,3);
+% points3D = [X Y Z]
 
 
 %% RANSAC

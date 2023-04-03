@@ -17,9 +17,16 @@ answerNo = 0;
 no = 9;
 indices = 1:no;
 finalResult = zeros(4,6);
-pnts=transpose(randperm(numel(X),no));
-temp = [X(pnts),Y(pnts),Z(pnts)];
+while 1
+    pnts=transpose(randperm(numel(X),no));
+    temp = [X(pnts),Y(pnts),Z(pnts)];
+    if iscoplanar(temp)==0
+        break
+    end
+end
 O = ones(no,1);
+
+
 
 %Convex hull of 9 points
 K = convhull(temp);
